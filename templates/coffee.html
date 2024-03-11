@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>커피 타임</title>
+</head>
+<body>
+    <h2>☕ 커피 타임</h2>
+    <div>
+        <form action="/">
+            <div>
+                <label for="name">이름</label>
+                <input style="width: 300px"type="text" id="name" name="name" autofocus/>
+            </div>
+            <div>
+                <label for="menu">메뉴</label>
+                <input style="width: 300px" type="text" id="menu" name="menu" placeholder="메뉴를 제거하려면 이름만 입력"/>
+            </div>
+            <div>
+                <input type="submit" value="등록" />
+            </div>
+        </form>
+    </div>
+    <hr/>
+    <h3>주문목록</h3>
+    <table style="border: 2px solid lightgrey; border-collapse: collapse">
+        <tr style="background-color:grey; color: white">
+            <td style="border: solid 2px lightgrey; width: 100px;">
+                이름
+            </td>
+            <td style="border: solid 2px lightgrey; width: 300px;">
+                메뉴
+            </td>
+        </tr>
+        {% for name in order_list %}
+            {% if order_list[name] %}
+            <tr>
+                <td style="border: solid 2px lightgrey;">
+                    {{name}}
+                </td>
+                <td style="border: solid 2px lightgrey;">
+                    {{order_list[name]}}
+                </td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+</body>
+</html>
